@@ -1,28 +1,24 @@
 <p align="center">
-   <a href="https://github.com/homebridge-plugins/homebridge-ewelink"><img alt="Homebridge Verified" src="https://raw.githubusercontent.com/homebridge-plugins/homebridge-ewelink/latest/branding/Homebridge_x_eWeLink.png" width="600px"></a>
+   <img alt="Homebridge eWeLink Matter" src="https://raw.githubusercontent.com/homebridge-plugins/homebridge-ewelink/latest/branding/Homebridge_x_eWeLink.png" width="600px">
 </p>
 <span align="center">
 
-## homebridge-ewelink
+## homebridge-ewelink-matter
 
-Homebridge plugin to integrate eWeLink devices into HomeKit
-
-[![npm](https://img.shields.io/npm/v/@homebridge-plugins/homebridge-ewelink/latest?label=latest)](https://www.npmjs.com/package/@homebridge-plugins/homebridge-ewelink)
-[![npm](https://img.shields.io/npm/v/@homebridge-plugins/homebridge-ewelink/beta?label=beta)](https://github.com/homebridge-plugins/homebridge-ewelink/wiki/Beta-Version)<br>
-[![verified-by-homebridge](https://img.shields.io/badge/homebridge-verified-blueviolet?color=%23491F59&style=flat)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
-[![hoobs-certified](https://img.shields.io/badge/hoobs-certified-yellow)](https://plugins.hoobs.org/plugin/homebridge-ewelink)<br>
-[![npm](https://img.shields.io/npm/dt/@homebridge-plugins/homebridge-ewelink)](https://www.npmjs.com/package/@homebridge-plugins/homebridge-ewelink)
-[![Discord](https://img.shields.io/discord/432663330281226270?color=728ED5&logo=discord&label=hb-discord)](https://discord.com/channels/432663330281226270/742733745743855627)
+Matter-native Homebridge plugin to integrate eWeLink & Sonoff devices into HomeKit and Matter with real-time electrical energy monitoring.
 
 </span>
 
 ### Plugin Information
 
-- This plugin allows you to view and control your eWeLink devices within HomeKit. The plugin:
+- This plugin allows you to view and control your eWeLink devices within HomeKit and Matter. The plugin:
+  - **Matter-Native Support**: Exposes energy-monitoring outlets (such as Sonoff S31, S40, S41, POW, POW Elite, DUALR3, SPM) as native Matter `OnOffOutlet` accessories on Homebridge >= 2.3.0.
+  - **Real-Time Energy Monitoring**: Exposes Matter `ElectricalPowerMeasurement` (Watts, Volts, Amps) and `ElectricalEnergyMeasurement` (kWh, periodic energy deltas) directly to Apple Home (iOS 18+), Google Home, and Home Assistant.
+  - **Multi-Channel Outlets**: Automatically separates multi-gang power devices (like DUALR3) into individual Matter accessories per channel.
   - requires your eWeLink credentials to download a device list
   - attempts to control your supported devices locally, reverting to cloud control if necessary
   - listens for real-time device updates when controlled externally
-  - supports removing your eWeLink credentials from the configuration in certain situations, see [wiki](https://github.com/homebridge-plugins/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
+  - keeps standard non-power accessories on Apple HomeKit (HAP) so your Matter fabric stays clean.
 
 ### Prerequisites
 

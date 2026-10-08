@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "eWeLink",
+  "pluginAlias": "eWeLinkMatter",
   "pluginType": "platform",
   "singular": true,
   "strictValidation": true,
@@ -13,7 +13,7 @@
       "name": {
         "type": "string",
         "title": "Plugin Name",
-        "default": "eWeLink"
+        "default": "eWeLinkMatter"
       },
       "username": {
         "type": "string",
@@ -78,6 +78,12 @@
         "condition": {
           "functionBody": "return (model.mode !== 'lan');"
         }
+      },
+      "enableMatter": {
+        "type": "boolean",
+        "title": "Enable Matter for Energy Outlets",
+        "default": true,
+        "description": "Expose power-monitoring outlets (such as Sonoff S31, S40, S41, POW, POW Elite) as Matter accessories with electrical measurement clusters on Homebridge 2.3+."
       },
       "ignoredHomes": {
         "title": "Ignored Homes",
@@ -1640,6 +1646,7 @@
         "language",
         "disableDeviceLogging",
         "disableNoResponse",
+        "enableMatter",
         "ignoredHomes",
         "countryCode",
         "httpHost",

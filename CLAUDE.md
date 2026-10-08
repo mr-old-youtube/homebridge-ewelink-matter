@@ -137,8 +137,13 @@ Every eWeLink device has a UIID (unique interface ID) that determines its capabi
 - Queue system (p-queue) prevents API rate limiting
 - Fakegato history service for Eve Home app integration
 
+### Matter Energy Integration (Homebridge >= 2.3.0)
+- Exposes power-monitoring outlets (S31, S40, S41, POW, POW Elite, SPM) as native Matter `OnOffOutlet` accessories
+- Clusters exposed: `OnOff`, `ElectricalPowerMeasurement` (activePower, voltage, activeCurrent), `ElectricalEnergyMeasurement` (cumulative & periodic energy)
+- Module located at `lib/matter/matter-outlet.js`
+- Requires Homebridge with Matter enabled on the bridge/child bridge
+
 ## Important Notes
 - ES modules with Node.js 20/22/24 support required
 - Uses @antfu/eslint-config for code style
-- No test suite - manual testing required
 - Verified Homebridge plugin following official standards
